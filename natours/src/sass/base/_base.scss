@@ -1,0 +1,39 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // essentially defines what 1rem is
+  font-size: 62.5%;
+  /* we want 10px for easy rem values - but if we set 10px here manually we override user font settings.
+  To get 10px, we use 62.5% of the default (which is usually 16px)*/
+
+  @include respond(l) {
+    font-size: 56.25%;
+  }
+
+  @include respond(m) {
+    font-size: 50%;
+  }
+
+  @media (max-width: 410px) {
+    font-size: 45%;
+  }
+
+  @include respond(xl) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(m) {
+    padding: 0;
+  }
+}

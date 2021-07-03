@@ -1,0 +1,84 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+
+  backface-visibility: hidden; /* fixes animation shaking */
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400; /* even though we set font-weight as 400 above, h1 has higher weight by default, so if we want it lower we need to specify */
+    letter-spacing: 4rem;
+    animation: moveInLeft 0.7s ease-out;
+
+    @include respond(s) {
+      letter-spacing: 2.5rem;
+      font-size: 5rem;
+    }
+
+    @media (max-width: 410px) {
+      letter-spacing: 1.5rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    animation: moveInRight 0.7s ease-out;
+
+    @include respond(s) {
+      letter-spacing: 1rem;
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block; // so that gradient does not take entire width of page
+  letter-spacing: 0.2rem;
+  transition: all 0.3s;
+  position: relative;
+  backface-visibility: hidden;
+
+  @include text-gradient; //* text gradient! see mixins
+
+  &:hover {
+    transform: skew(2deg, 5deg);
+    text-shadow: 0.5rem 1rem 1.75rem rgba($color-black, 0.2);
+  }
+
+  @include respond(m) {
+    font-size: 3rem;
+  }
+
+  @include respond(s) {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}

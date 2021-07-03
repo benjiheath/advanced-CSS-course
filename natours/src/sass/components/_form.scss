@@ -1,0 +1,108 @@
+.form {
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+
+    @include respond(m) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__input {
+    display: block;
+    padding: 1.5rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.8);
+    border: none;
+    border-bottom: 3px solid transparent;
+    width: 90%;
+    transition: all 0.3s;
+
+    @include respond(m) {
+      width: 100%;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+      border-bottom: 3px solid $color-primary;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
+
+    &::-webkit-input-placeholder {
+      color: rgb(160, 160, 160);
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+  &__radio-input {
+    opacity: 0;
+  }
+
+  &__radio-group {
+    width: 45%;
+    display: inline-block;
+
+    &:last-child {
+      @include respond(m) {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    @include respond(m) {
+      width: 100%;
+    }
+  }
+
+  &__radio-label {
+    font-size: $font-size-default;
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: -13px;
+    top: -0.5rem;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      height: 1.2rem;
+      width: 1.2rem;
+      display: block;
+      border-radius: 50%;
+      @include center-abs;
+      background-color: $color-primary;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}

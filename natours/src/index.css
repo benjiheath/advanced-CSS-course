@@ -1,0 +1,212 @@
+:root {
+  --light-green: #7ed56f;
+  --medium-green: #55c57a;
+  --dark-green: #28b485;
+}
+
+/* Global styles */
+
+*,
+*::after,
+*::before {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  /* we want 10px for easy rem values - but if we set 10px here manually we override user font settings.
+  To get 10px, we use 62.5% of the default (which is usually 16px)*/
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; /* white border */
+  box-sizing: border-box;
+}
+
+button,
+a {
+  font: inherit;
+  color: inherit;
+}
+
+/* -------- Header -------- */
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.781), rgba(39, 180, 133, 0.808)),
+    url(../src/img/hero.jpg);
+  background-size: cover;
+  background-position: top; /* ensures image stays uncropped at top when window size changes */
+  position: relative;
+
+  /* creating the diagonal 'cut-off' effect */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__heading-box {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* this centers the btn as it is an inline-block link */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem;
+
+  backface-visibility: hidden; /* fixes animation shaking */
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400; /* even though we set font-weight as 400 above, h1 has higher weight by default, so if we want it lower we need to specify */
+  letter-spacing: 4rem;
+
+  animation: moveInLeft 0.7s ease-out;
+
+  /* 
+  animation-delay: 3s; 
+  animation-iteration-count: 3;
+  */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+
+  animation: moveInRight 0.7s ease-out;
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  border-style: none;
+  border-radius: 40px;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.1s;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.btn--white {
+  background-color: #fff;
+}
+
+/* btn fade-towards effect */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* positions behind actual btn */
+  transition: all 0.3s;
+}
+
+.btn--white::after {
+  background-color: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn--animated {
+  animation: moveInUp 0.5s ease-out 0.5s;
+  animation-fill-mode: backwards /* causes opacity to be 0 when animation starts */;
+}
+
+@keyframes moveInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  60% {
+    transform: translateX(2rem);
+  }
+  80% {
+    transform: translateX(-1.5rem);
+  }
+
+  90% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  60% {
+    transform: translateX(-2rem);
+  }
+  80% {
+    transform: translateX(1.5rem);
+  }
+
+  90% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,55 @@
+.features-cards-wrapper {
+  transform: skewY(7deg);
+
+  @include respond(m) {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 123em;
+  }
+}
+
+.feature-box {
+  background-color: rgba($color-white, 0.8);
+  font-size: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.3);
+  transition: all 0.2s;
+  min-height: 33rem;
+
+  @media (max-width: 1050px) {
+    min-height: 35rem;
+  }
+
+  @include respond(m) {
+    min-height: 20rem;
+    max-height: 24rem;
+  }
+
+  @include respond(xl) {
+    min-height: 32rem;
+  }
+
+  &__icon {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    @include text-gradient;
+
+    @include respond(m) {
+      margin-bottom: -1rem;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.03) translateY(-1.5rem);
+    box-shadow: 0 2.5rem 6rem rgba($color-black, 0.3);
+  }
+
+  &__text {
+    @include respond(m) {
+      margin-bottom: 3rem;
+    }
+  }
+}

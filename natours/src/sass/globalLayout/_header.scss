@@ -1,0 +1,45 @@
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.781),
+      rgba($color-primary-dark, 0.808)
+    ),
+    url(../../img/hero.jpg);
+  background-size: cover;
+  background-position: top; /* ensures image stays uncropped at top when window size changes */
+  position: relative;
+
+  /* creating the diagonal 'cut-off' effect */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  // padding-bottom: 110rem;
+
+  @include respond(m) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+
+  @include respond(s) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 87vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 87vh, 0 100%);
+  }
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__heading-box {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* this centers the btn as it is an inline-block link */
+  }
+}

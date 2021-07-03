@@ -1,0 +1,110 @@
+.flex-center {
+  @include flex-row;
+  justify-content: center;
+}
+
+.flex-row-even {
+  @include flex-row;
+  justify-content: space-evenly;
+}
+
+.flex-row-between {
+  @include flex-row;
+  justify-content: space-between;
+}
+
+.flex-column-even {
+  @include flex-column;
+  justify-content: space-evenly;
+}
+
+.flex-column-between {
+  @include flex-column;
+  justify-content: space-between;
+}
+
+.flex-row-between-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  width: 83%;
+  // width: 114rem;
+  max-width: 120rem;
+  margin: 0 auto;
+
+  @include respond(l) {
+    width: 95%;
+  }
+}
+
+.col-45 {
+  width: 45%;
+
+  @include respond(m) {
+    width: 44rem;
+  }
+
+  @media (max-width: 410px) {
+    max-width: 97%;
+  }
+}
+
+.col-20 {
+  width: 22%;
+  @include respond(l) {
+    width: 21%;
+  }
+
+  @include respond(m) {
+    width: 44rem;
+  }
+
+  @media (max-width: 410px) {
+    max-width: 97%;
+  }
+
+  @include respond(xl) {
+    width: 20%;
+  }
+}
+
+.marg-bot-med {
+  margin-bottom: 8rem;
+  @include respond(m) {
+    margin-bottom: 4rem;
+  }
+}
+.marg-bot-small {
+  margin-bottom: 1.5rem;
+}
+
+.marg-bot-4 {
+  margin-bottom: 4rem;
+  @include respond(m) {
+    margin-bottom: 2rem;
+  }
+}
+
+.marg-top-med {
+  margin-top: 8rem;
+}
+
+.marg-top-large {
+  margin-top: 11rem;
+  @include respond(m) {
+    margin-top: 8rem;
+  }
+}
+
+.fix {
+  margin-top: 2rem;
+}
