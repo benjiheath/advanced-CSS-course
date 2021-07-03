@@ -1,6 +1,9 @@
 import nat1L from "../../../img/nat-1-large.jpg";
 import nat2L from "../../../img/nat-2-large.jpg";
 import nat3L from "../../../img/nat-3-large.jpg";
+import nat1 from "../../../img/nat-1.jpg";
+import nat2 from "../../../img/nat-2.jpg";
+import nat3 from "../../../img/nat-3.jpg";
 
 const About = () => {
   return (
@@ -26,11 +29,35 @@ const About = () => {
           </a>
         </div>
 
+        {/* resolution switching */}
+
         <div className="about-img-wrapper col-45">
           <div className="composition">
-            <img src={nat1L} alt="" className="composition__photo composition__photo--p1" />
+            <img
+              srcSet={`${nat1} 300w, ${nat1L} 1000w`}
+              sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+              className="composition__photo composition__photo--p1"
+              alt=""
+              src={nat1}
+            />
+            <img
+              srcSet={`${nat2} 300w, ${nat2L} 1000w`}
+              sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+              className="composition__photo composition__photo--p2"
+              alt=""
+              src={nat2}
+            />
+            <img
+              srcSet={`${nat3} 300w, ${nat3L} 1000w`}
+              sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+              className="composition__photo composition__photo--p3"
+              alt=""
+              src={nat3}
+            />
+
+            {/* <img src={nat1L} alt="" className="composition__photo composition__photo--p1" />
             <img src={nat2L} alt="" className="composition__photo composition__photo--p2" />
-            <img src={nat3L} alt="" className="composition__photo composition__photo--p3" />
+            <img src={nat3L} alt="" className="composition__photo composition__photo--p3" /> */}
           </div>
         </div>
       </div>

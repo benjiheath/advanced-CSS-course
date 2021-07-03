@@ -5,7 +5,7 @@
       rgba($color-primary-light, 0.781),
       rgba($color-primary-dark, 0.808)
     ),
-    url(../../img/hero.jpg);
+    url(../../img/hero-small.jpg);
   background-size: cover;
   background-position: top; /* ensures image stays uncropped at top when window size changes */
   position: relative;
@@ -13,7 +13,16 @@
   /* creating the diagonal 'cut-off' effect */
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  // padding-bottom: 110rem;
+
+  // responsive img: only load high res img if dpi >=192 --- OR if abs pixel width >= 2000px
+  @media (min-resolution: 192dpi) and (min-width: 600px), (min-width: 2000px) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.781),
+        rgba($color-primary-dark, 0.808)
+      ),
+      url(../../img/hero.jpg);
+  }
 
   @include respond(m) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);

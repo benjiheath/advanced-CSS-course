@@ -1,10 +1,17 @@
-import logo from "../img/logo-green-2x.png";
+import logo1 from "../img/logo-green-1x.png";
+import logo2 from "../img/logo-green-2x.png";
+import logoSmall1 from "../img/logo-green-small-1x.png";
+import logoSmall2 from "../img/logo-green-small-2x.png";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__logo-box">
-        <img src={logo} alt="Full logo" className="footer__logo" />
+        {/* art direction & density switching */}
+        <picture className="footer__logo">
+          <source srcSet={`${logoSmall1} 1x, ${logoSmall2} 2x`} media="(max-width: 600px)" />
+          <img srcSet={`${logo1} 1x, ${logo2} 2x`} alt="Full logo" className="footer__logo" />
+        </picture>
       </div>
       <div className="row flex-row-between-start footer-wrapper ">
         <div className="footer__navigation">
