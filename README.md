@@ -22,7 +22,7 @@ Travel/booking app centered around the use of flexbox. For this I used Styled Co
 
 #### Nexter
 
--->[Demo](https://elated-yonath-53b36a.netlify.app/)<--
+-->[Demo](https://amazing-jennings-5067f7.netlify.app/)<--
 
 Landing page for a real-estate business - built entirely with grid from overall layout to
 small nested components. I love the drastically reduced necessity for media queries that the grid system provides. I was amazed at how naturally responsive grid layouts can be, especially when utilizing features like auto-fit and minmax.
